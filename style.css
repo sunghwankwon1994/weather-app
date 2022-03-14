@@ -4,9 +4,11 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
 }
 
 body {
+  /* content-visibility: auto; */
   padding-left: 5%;
   padding-right: 5%;
   text-align: center;
@@ -16,7 +18,14 @@ body {
   background-repeat: no-repeat;
   color: #fff;
 }
+::-webkit-scrollbar {
+  display: none;
+}
 
+.hide {
+  content-visibility: hidden;
+  /* visibility: hidden; */
+}
 .contents {
   margin-bottom: 80px;
 }
@@ -94,6 +103,28 @@ body {
   color: black;
   font-size: larger;
 }
+.add_box {
+  width: 100%;
+  position: relative;
+  background-color: var(--box-background);
+  border-radius: 10px;
+  margin-top: -60px;
+}
+.doneList,
+.toDoList {
+  margin-top: 20px;
+  background-color: var(--box-background);
+  border-radius: 10px;
+  padding: 10px;
+  float: left;
+  width: 49%;
+}
+.toDoList {
+  margin-right: 11px;
+}
+.doneList {
+}
+
 @media (min-width: 1000px) {
   body {
     padding-left: 20%;

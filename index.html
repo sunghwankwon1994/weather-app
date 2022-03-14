@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Tools</title>
   </head>
-  <body>
+  <body class="container">
     <section class="contents">
       <div class="time_container">
       <div class="time" id="time">
@@ -18,37 +18,44 @@
         Saturday, 15 2 May
       </div>
     </div>
+    <div class="weather_container hide">
       <div class="weather">
         <div class="city"></div>
         <img src="" class="curIcon"></img>
         <div class="curTemp"></div>
       </div>
       <div id="moreInfo">
-        <div class="feelLike">12</div>
-        <div class="feelLike">12</div>
-        <div class="feelLike">12</div>
-        <div class="feelLike">12</div>
+        <!-- <div class="feelLike">12</div> -->
+        </div>
+    </section>
+    <section>
+      <div class="add_box" >
+        <h2>My to do list</h2>
+        <input type="text">
+        <span>Add</span>
+        </div>
+        <div class="toDoList">
+        <ul>
+          <li>list 1</li>
+          <li>list 2</li>
+          <li>list 3</li>
+        </ul>
+      </div>
+      <div class="doneList">
+        <ul>
+          <li>list 1</li>
+          <li>list 2</li>
+          <li>list 3</li>
+        </ul>
       </div>
     </section>
-    <section class="bottom_menu">
-      <div>
+   <section class="bottom_menu">
+      <!-- <div>
         <i class="fa-solid fa-bars"></i>
-      </div>
-      <div>
-        <i class="fa-solid fa-list-check"></i>
-    </div>
-    <div>
-      <i class="fa-solid fa-gamepad"></i>
-  </div>
-  <div>
-    <i class="fa-solid fa-map-location-dot"></i>
-  </div>
-  <div>
-    <i class="fa-solid fa-book-font"></i>
-  </div>
-
-    </section>
+      </div> -->
+    </section> 
     
-    <script type='text/javascript' src='config.js'></script><script src="index.js"></script>
+    <script type='text/javascript' src='config.js'></script>
+    <script src="index.js" type="module"></script>
   </body>
 </html>
