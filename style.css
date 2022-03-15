@@ -24,6 +24,7 @@ body {
 
 .hide {
   content-visibility: hidden;
+  transition: all 1s ease;
   /* visibility: hidden; */
 }
 .contents {
@@ -64,7 +65,7 @@ body {
 }
 .weather .city {
   font-size: 45px;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: -20px;
 }
 .weather .curIcon {
@@ -103,26 +104,114 @@ body {
   color: black;
   font-size: larger;
 }
+.todo-container {
+  justify-content: center;
+}
 .add_box {
   width: 100%;
   position: relative;
   background-color: var(--box-background);
   border-radius: 10px;
   margin-top: -60px;
+  padding: 10px;
 }
-.doneList,
+.input-container {
+  width: 100%;
+  text-align: center;
+}
+
+.add_box input {
+  margin: 10px 0 10px 0;
+  font-size: 20px;
+  width: 60vw;
+}
+#addBtn {
+  font-size: 20px;
+  background: #8841bb;
+  color: #fff;
+  border: none;
+  position: relative;
+  height: 30px;
+  font-size: 1em;
+  padding: 0 2em;
+  cursor: pointer;
+  outline: none;
+  border-radius: 10px;
+}
+#addBtn:hover {
+  background: #ffc0cb;
+  color: #8841bb;
+}
 .toDoList {
   margin-top: 20px;
   background-color: var(--box-background);
   border-radius: 10px;
   padding: 10px;
-  float: left;
-  width: 49%;
+  width: 100%;
+  margin-bottom: 20vh;
+  justify-content: center;
 }
-.toDoList {
+.toDoList h2 {
+  text-align: center;
+}
+.toDoList h2 .select {
+  text-align: right;
+  margin: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+select {
+  color: #8841bb;
+  width: 10rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.inner {
+  align-items: center;
+  width: 100%;
+}
+#todoUl {
   margin-right: 11px;
+  width: 100%;
+  list-style: none;
+  justify-content: space-between;
+  align-items: center;
 }
-.doneList {
+.toDoList #todoUl .dueDate {
+  font-size: 15px;
+  font-weight: bold;
+}
+.todo {
+  align-items: center;
+  justify-content: center;
+}
+#todoUl div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.5s ease;
+}
+#todoUl li {
+  justify-content: space-between;
+  display: flex;
+  margin: 0.5rem;
+  width: 50%;
+  flex: 1;
+  text-align: left;
+  align-items: center;
+}
+.fa-trash,
+.fa-check {
+  pointer-events: none;
+}
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+.fall {
+  transform: translateY(8rem) rotateZ(20deg);
+  opacity: 0;
 }
 
 @media (min-width: 1000px) {
@@ -132,5 +221,10 @@ body {
   }
   .bottom_menu > div > i {
     font-size: x-large;
+  }
+  .add_box input {
+    margin: 10px 0 10px 0;
+    font-size: 20px;
+    width: 40vw;
   }
 }

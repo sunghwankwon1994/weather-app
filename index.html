@@ -4,11 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- css -->
     <link rel="stylesheet" href="style.css" />
+    <!-- awesome font -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Tools</title>
   </head>
   <body class="container">
+    <!-- Weather box -->
     <section class="contents">
       <div class="time_container">
       <div class="time" id="time">
@@ -28,26 +31,31 @@
         <!-- <div class="feelLike">12</div> -->
         </div>
     </section>
-    <section>
+
+    <!-- To do list -->
+    <section class="todo_container">
       <div class="add_box" >
         <h2>My to do list</h2>
-        <input type="text">
-        <span>Add</span>
-        </div>
+        <div class="input-container">
+        <input id="toDoListInput" type="text" placeholder="Ex) to get a car">
+        <input id="dueDateInput" type="date">
+      </div>
+        <button type="submit" id="addBtn">Add</button>
+      </div>
+ 
         <div class="toDoList">
-        <ul>
-          <li>list 1</li>
-          <li>list 2</li>
-          <li>list 3</li>
+          <h2>To do list<div class="select">
+            <select name="todos" class="filter-todo">
+              <option value="all">All</option>
+              <option value="completed">Completed</option>
+              <option value="uncompleted">Uncompleted</option>
+            </select>
+          </div></h2>
+        <ul id="todoUl">
+
         </ul>
-      </div>
-      <div class="doneList">
-        <ul>
-          <li>list 1</li>
-          <li>list 2</li>
-          <li>list 3</li>
-        </ul>
-      </div>
+
+    </div>
     </section>
    <section class="bottom_menu">
       <!-- <div>
@@ -56,6 +64,6 @@
     </section> 
     
     <script type='text/javascript' src='config.js'></script>
-    <script src="index.js" type="module"></script>
+    <script type="module" src="index.js"></script>
   </body>
 </html>
