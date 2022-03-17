@@ -21,15 +21,31 @@ arrBtn.map((btn) => {
   btn.addEventListener("click", function () {
     const weatherContainer = document.querySelector(".weather_container");
     const todoContainer = document.querySelector(".todo_container");
-    if (btn.classList[1] === "weatherBtn") {
-      // console.log(`${btn.classList[1]} clicked`);
-      weatherContainer.classList.remove("hide");
-      todoContainer.classList.add("hide");
+    switch (btn.classList[1]) {
+      case "weatherBtn":
+        weatherContainer.classList.remove("hide");
+        todoContainer.classList.add("hide");
+        break;
+      case "toDoBtn":
+        console.log("to do btn");
+        weatherContainer.classList.add("hide");
+        todoContainer.classList.remove("hide");
+        break;
+      case "gameBtn":
+        console.log("gamgeBtn");
+        weatherContainer.classList.add("hide");
+        todoContainer.classList.add("hide");
+        break;
     }
-    if (btn.classList[1] === "toDoBtn") {
-      // console.log(`${btn.classList[1]} clicked`);
-      weatherContainer.classList.add("hide");
-      todoContainer.classList.remove("hide");
-    }
+    // if (btn.classList[1] === "weatherBtn") {
+    //   // console.log(`${btn.classList[1]} clicked`);
+    //   weatherContainer.classList.remove("hide");
+    //   todoContainer.classList.add("hide");
+    // }
+    // if (btn.classList[1] === "toDoBtn") {
+    //   // console.log(`${btn.classList[1]} clicked`);
+    //   weatherContainer.classList.add("hide");
+    //   todoContainer.classList.remove("hide");
+    // }
   });
 });

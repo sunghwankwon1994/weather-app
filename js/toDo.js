@@ -3,12 +3,12 @@ const addBtnEl = document.getElementById("addBtn");
 const dueDateInputEl = document.getElementById("dueDateInput");
 const ul = document.getElementById("todoUl");
 const filterOption = document.querySelector(".filter-todo");
-
+let check = false;
 //Date variable
 let date = new Date();
 //set time is 0
 date.setHours(0, 0, 0, 0);
-
+console.log(check);
 document.addEventListener("DOMContentLoaded", getTodos);
 ul.addEventListener("click", deleteCheck);
 addBtnEl.addEventListener("click", addTodoList);
@@ -21,8 +21,9 @@ function addTodoList(e) {
     const date1 = new Date(dueDateInputEl.value);
     date1.setHours(24, 0, 0, 0);
     if (date <= date1) {
-      newElement(toDoInputEl.value, dueDateInputEl.value);
-      saveLocalTodos(toDoInputEl.value, dueDateInputEl.value);
+      newElement(toDoInputEl.value, dueDateInputEl.value, check);
+
+      saveLocalTodos(toDoInputEl.value, dueDateInputEl.value, check);
     } else {
       alert("Sorry, the past date cannot be set.");
     }
@@ -33,18 +34,14 @@ function addTodoList(e) {
   dueDateInputEl.value = "";
 }
 
-function newElement(toDoInput, dueDateInput) {
+function newElement(toDoInput, dueDateInput, check) {
   const li = document.createElement("li");
-  const span = document.createElement("span");
   const div = document.createElement("div");
   const deleteBtn = document.createElement("button");
   const toDoText = document.createTextNode(toDoInput);
   const dateText = document.createTextNode(dueDateInput);
 
   li.appendChild(toDoText);
-  span.appendChild(dateText);
-  span.classList.add("dueDate");
-  li.appendChild(span);
 
   //check button
   const completedBtn = document.createElement("button");
@@ -53,9 +50,21 @@ function newElement(toDoInput, dueDateInput) {
   //trash button
   deleteBtn.innerHTML = '<i class = "fas fa-trash"></i>';
   deleteBtn.classList.add("removeBtn");
+  console.log(check);
+  if (check === false) {
+    div.classList.toggle("uncompleted");
+    check == false;
+  } else {
+    div.classList.toggle("completed");
+    check = true;
+  }
 
-  div.classList.toggle("uncompleted");
+  const divForDueDate = document.createElement("div");
+  divForDueDate.classList.add("dueDate");
+  divForDueDate.appendChild(dateText);
+
   div.appendChild(li);
+  div.appendChild(divForDueDate);
   div.appendChild(completedBtn);
   div.appendChild(deleteBtn);
   ul.appendChild(div);
@@ -76,6 +85,12 @@ function deleteCheck(e) {
     const todo = item.parentElement;
     todo.classList.toggle("completed");
     todo.classList.toggle("uncompleted");
+    if (todo.classList.value === "completed") {
+      check = true;
+    } else {
+      check = false;
+    }
+    saveCheckedLocalTodos(todo, check);
   }
 }
 
@@ -98,14 +113,14 @@ function filterTodo(e) {
       break;
   }
 }
-function saveLocalTodos(toDoInput, dueDateInput) {
+function saveLocalTodos(toDoInput, dueDateInput, check) {
   let todos;
   if (localStorage.getItem("todos") === null) {
     todos = [];
   } else {
     todos = JSON.parse(localStorage.getItem("todos"));
   }
-  todos.push({ date: dueDateInput, toDo: toDoInput });
+  todos.push({ date: dueDateInput, toDo: toDoInput, checked: check });
   console.log(todos);
   localStorage.setItem("todos", JSON.stringify(todos));
 }
@@ -120,9 +135,8 @@ function getTodos() {
   }
 
   todos.forEach(function (todo) {
-    newElement(todo.toDo, todo.date);
+    newElement(todo.toDo, todo.date, todo.checked);
   });
-  console.log(todos);
 }
 
 function removeLocalTodos(todo) {
@@ -133,6 +147,31 @@ function removeLocalTodos(todo) {
     todos = JSON.parse(localStorage.getItem("todos"));
   }
   const todoIndex = todo.children[0].innerText;
-  todos.splice(todos.indexOf(todoIndex), 1);
+
+  console.log(todos);
+  console.log(todoIndex);
+  todos.forEach((todo, index) => {
+    todo.toDo === todoIndex ? todos.splice(index, 1) : "";
+  });
+  console.log(todos);
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+function saveCheckedLocalTodos(todo, check) {
+  let todos;
+  if (localStorage.getItem("todos") === null) {
+    todos = [];
+  } else {
+    todos = JSON.parse(localStorage.getItem("todos"));
+  }
+  const todoIndex = todo.children[0].innerText;
+
+  todos.forEach((todo, index) => {
+    console.log(check);
+    todo.toDo === todoIndex
+      ? (todos[index].checked = check)
+      : todos[index].checked;
+  });
+
   localStorage.setItem("todos", JSON.stringify(todos));
 }

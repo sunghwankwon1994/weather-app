@@ -172,6 +172,7 @@ select {
   width: 100%;
 }
 #todoUl {
+  margin-left: -20px;
   margin-right: 11px;
   width: 100%;
   list-style: none;
@@ -179,8 +180,11 @@ select {
   align-items: center;
 }
 .toDoList #todoUl .dueDate {
-  font-size: 15px;
+  font-size: 12px;
   font-weight: bold;
+  float: right;
+  width: auto;
+  margin-right: 5px;
 }
 .todo {
   align-items: center;
@@ -192,18 +196,23 @@ select {
   justify-content: space-between;
   transition: all 0.5s ease;
 }
-#todoUl li {
-  justify-content: space-between;
+
+#todoUl div li {
   display: flex;
   margin: 0.5rem;
-  width: 50%;
+  width: auto;
   flex: 1;
   text-align: left;
+  word-break: break-all;
   align-items: center;
 }
 .fa-trash,
 .fa-check {
   pointer-events: none;
+}
+.uncompleted,
+.completed {
+  align-items: center;
 }
 .completed {
   text-decoration: line-through;
@@ -213,7 +222,14 @@ select {
   transform: translateY(8rem) rotateZ(20deg);
   opacity: 0;
 }
-
+.dictionary-container {
+  width: 100%;
+  position: relative;
+  background-color: var(--box-background);
+  border-radius: 10px;
+  margin-top: -60px;
+  padding: 10px;
+}
 @media (min-width: 1000px) {
   body {
     padding-left: 20%;
@@ -226,5 +242,16 @@ select {
     margin: 10px 0 10px 0;
     font-size: 20px;
     width: 40vw;
+  }
+  .toDoList #todoUl li {
+    font-size: 20px;
+  }
+  .toDoList #todoUl .dueDate {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  .toDoList #todoUl button {
+    font-size: 20px;
+    margin-right: 5px;
   }
 }

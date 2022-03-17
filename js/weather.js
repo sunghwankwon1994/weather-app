@@ -25,6 +25,7 @@ export const getData = async (latitude, longitude) => {
     console.error(err);
   }
 };
+
 navigator.geolocation.getCurrentPosition(function (location) {
   const latitude = String(location.coords.latitude);
   const longitude = String(location.coords.longitude);
