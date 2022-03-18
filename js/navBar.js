@@ -8,33 +8,33 @@ navBar.innerHTML = `    <div class="btn weatherBtn">
 <div class="btn gameBtn">
 <i class="fa-solid fa-gamepad"></i>
 </div>
-<div class="btn mapBtn">
-<i class="fa-solid fa-map-location-dot"></i>
-</div>
-<div class="btn dictionaryBtn">
-<i class="fa-solid fa-book"></i>
-</div>`;
+`;
 //button functions
 const arrBtn = [...document.querySelectorAll(".btn")];
-console.log(arrBtn);
+// console.log(arrBtn);
 arrBtn.map((btn) => {
   btn.addEventListener("click", function () {
     const weatherContainer = document.querySelector(".weather_container");
     const todoContainer = document.querySelector(".todo_container");
+    const gameContainer = document.querySelector(".game_container");
     switch (btn.classList[1]) {
       case "weatherBtn":
         weatherContainer.classList.remove("hide");
         todoContainer.classList.add("hide");
+        gameContainer.classList.add("hide");
+
         break;
       case "toDoBtn":
-        console.log("to do btn");
         weatherContainer.classList.add("hide");
         todoContainer.classList.remove("hide");
+        gameContainer.classList.add("hide");
+        // dictionaryContainer.classList.add("hide");
         break;
       case "gameBtn":
-        console.log("gamgeBtn");
         weatherContainer.classList.add("hide");
         todoContainer.classList.add("hide");
+        gameContainer.classList.remove("hide");
+        // dictionaryContainer.classList.add("hide");
         break;
     }
     // if (btn.classList[1] === "weatherBtn") {

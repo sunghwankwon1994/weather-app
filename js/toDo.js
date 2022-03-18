@@ -8,7 +8,7 @@ let check = false;
 let date = new Date();
 //set time is 0
 date.setHours(0, 0, 0, 0);
-console.log(check);
+
 document.addEventListener("DOMContentLoaded", getTodos);
 ul.addEventListener("click", deleteCheck);
 addBtnEl.addEventListener("click", addTodoList);
@@ -50,7 +50,7 @@ function newElement(toDoInput, dueDateInput, check) {
   //trash button
   deleteBtn.innerHTML = '<i class = "fas fa-trash"></i>';
   deleteBtn.classList.add("removeBtn");
-  console.log(check);
+
   if (check === false) {
     div.classList.toggle("uncompleted");
     check == false;

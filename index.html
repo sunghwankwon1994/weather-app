@@ -21,7 +21,7 @@
         Saturday, 15 2 May
       </div>
     </div>
-    <div class="weather_container hide">
+    <div class="weather_container">
       <div class="weather">
         <div class="city"></div>
         <img src="" class="curIcon"></img>
@@ -33,7 +33,7 @@
     </section>
 
     <!-- To do list -->
-    <section class="todo_container">
+    <section class="todo_container hide">
       <div class="add_box" >
         <h2>My to do list</h2>
         <div class="input-container">
@@ -57,20 +57,19 @@
 
     </div>
     </section>
-<section>
-  <audio id="sound"></audio>
-  <div class="dictionary-container">
-      <div class="search-box">
-          <input
-              type="text"
-              placeholder="Type the word here.."
-              id="inp-word"
-          />
-          <button id="search-btn">Search</button>
-      </div>
-      <div class="result" id="result"></div>
+
+<section class="game_container hide">
+  <div class="score-container">
+    <div class="score-title"></div>
+  <span id="score">0</span>
   </div>
+  <button id="restartBtn">Restart</button>
+  <button id="startBtn">start</button>
+<div id="game-result"></div>
+  <div class="grid"></div>
 </section>
+
+
 
    <section class="bottom_menu">
       <!-- <div>

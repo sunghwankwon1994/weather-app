@@ -94,7 +94,7 @@ body {
 }
 .bottom_menu > div {
   float: left;
-  width: 20%;
+  width: 33%;
   height: 100%;
   text-align: center;
   padding-top: 13px;
@@ -222,7 +222,62 @@ select {
   transform: translateY(8rem) rotateZ(20deg);
   opacity: 0;
 }
-.dictionary-container {
+/* Game Section */
+.game_container {
+  margin-top: 5px;
+}
+.grid {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #bbada0;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+.grid .box {
+  width: 75px;
+  height: 75px;
+  background-color: rgba(238, 228, 218, 0.35);
+  text-align: center;
+  justify-content: center;
+  font-weight: bold;
+  padding: 10px;
+  font-size: 40px;
+}
+.score-container {
+  margin-left: 20px;
+  position: relative;
+  float: left;
+  background: #bbada0;
+  padding: 15px 25px;
+  font-size: 25px;
+  height: auto;
+  font-weight: bold;
+  border-radius: 3px;
+  color: white;
+  margin-top: -20px;
+  margin-bottom: 10px;
+}
+.score-container::after {
+  position: absolute;
+  width: 100%;
+  top: 10px;
+  left: 0;
+  content: "Score";
+  text-transform: uppercase;
+  font-size: 13px;
+  line-height: 13px;
+  text-align: center;
+  color: #eee4da;
+}
+#score {
+  font-size: 50px;
+}
+
+/* Dictionary Section */
+.dictionary-box {
   width: 100%;
   position: relative;
   background-color: var(--box-background);
@@ -253,5 +308,37 @@ select {
   .toDoList #todoUl button {
     font-size: 20px;
     margin-right: 5px;
+  }
+  .game_container {
+    align-items: center;
+  }
+  .game_container .score-container {
+    width: 150px;
+    margin-top: -70px;
+    margin-left: 170px;
+  }
+  .game_container #restartBtn,
+  .game_container #startBtn {
+    margin-top: -10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    font-size: 30px;
+  }
+  .game_container .score-container #score {
+    font-size: 40px;
+  }
+  .grid {
+    margin-left: 170px;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #bbada0;
+    border-radius: 5px;
+  }
+  .grid .box {
+    font-size: 60px;
+    width: 100px;
+    height: 100px;
   }
 }
